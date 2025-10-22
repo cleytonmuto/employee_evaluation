@@ -1,8 +1,9 @@
+import uuid
 from sqlalchemy import Column, Integer, Text, ForeignKey, DateTime
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.sql import func
-import uuid
 from app.db.base import Base
+
 
 class Evaluation(Base):
     __tablename__ = "evaluations"
@@ -14,3 +15,4 @@ class Evaluation(Base):
     score = Column(Integer, nullable=False)
     comments = Column(Text)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
+    updated_at = Column(DateTime(timezone=True), server_default=func.now(), onupdate=func.now())

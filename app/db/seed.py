@@ -33,16 +33,17 @@ def run_seed(db: Session):
         email="admin@example.com",
         full_name="System Administrator",
         hashed_password=get_password_hash("adminpass"),
-        role=RoleEnum.admin,
+        role=RoleEnum.ADMIN,
     )
 
-    # --- Create employees ---
+    # --- Create employees ---docker-compose exec web python -c "from app.db.session import SessionLocal; from app.db.seed import run_seed; db=SessionLocal(); run_seed(db)"
+
     alice = User(
         username="alice",
         email="alice@example.com",
         full_name="Alice Johnson",
         hashed_password=get_password_hash("alicepass"),
-        role=RoleEnum.employee,
+        role=RoleEnum.EMPLOYEE,
         sector_id=engineering.id,
     )
 
@@ -51,7 +52,7 @@ def run_seed(db: Session):
         email="bob@example.com",
         full_name="Bob Smith",
         hashed_password=get_password_hash("bobpass"),
-        role=RoleEnum.employee,
+        role=RoleEnum.EMPLOYEE,
         sector_id=hr.id,
     )
 

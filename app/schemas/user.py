@@ -12,7 +12,7 @@ class UserBase(BaseModel):
 
 class UserCreate(UserBase):
     password: str
-    role: Optional[RoleEnum] = RoleEnum.employee
+    role: Optional[RoleEnum] = RoleEnum.EMPLOYEE
 
 class UserUpdate(BaseModel):
     full_name: Optional[str] = None
